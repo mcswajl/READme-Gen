@@ -107,15 +107,58 @@ const promptUser = () => {
           }
         },
         {
-          type: 'confirm',
-          name: 'feature',
-          message: 'Would you like to feature this project?',
-          default: false
-        },
-        {
+          type: 'input',
+          name: 'usage',
+          message: 'What is the project usage? (Required)',
+          validate: linkInput => {
+            if (linkInput) {
+              return true;
+            } else {
+              console.log('You need to enter a usage!');
+              return false;
+            }
+          }
+          },
+        
+          {
+            type: 'input',
+            name: 'license',
+            message: 'What license did you use? (Required)',
+            validate: linkInput => {
+              if (linkInput) {
+                return true;
+              } else {
+                console.log('You need to enter a license!');
+                return false;
+              }
+            }
+          },
+
+          {
+            type: 'input',
+            name: 'contribute',
+            message: 'Who contributed to this project? (Required)',
+            validate: linkInput => {
+              if (linkInput) {
+                return true;
+              } else {
+                console.log('You need to enter contributing text!');
+                return false;
+              }
+            }
+          },
+
+          {
+            type: 'confirm',
+            name: 'confirmAddProject',
+            message: 'Did you test this project?',
+            default: false
+          },
+          
+          {
           type: 'confirm',
           name: 'confirmAddProject',
-          message: 'Would you like to enter another project?',
+          message: 'Do you have any questions?',
           default: false
         }
       ])

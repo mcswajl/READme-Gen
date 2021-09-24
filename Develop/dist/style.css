@@ -141,6 +141,17 @@ nav a:hover {
   padding: 2.5%;
 }
 
+.screenshot {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* FORM */
 .form-label,
 .form-input,
