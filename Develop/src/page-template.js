@@ -1,29 +1,15 @@
-// create the about section
-const generateAbout = aboutText => {
-  if (!aboutText) {
-    return '';
-  }
-
-  return `
-    <section class="my-3" id="about">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">About Me</h2>
-      <p>${aboutText}</p>
-    </section>
-  `;
-};
-
 // create the projects section
 const generateProjects = projectsArr => {
   return `
     <section class="my-3" id="portfolio">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Work</h2>
+      <h2 class="text-dark bg-primary p-2 display-inline-block">Project Description</h2>
       <div class="flex-row justify-space-between">
       ${projectsArr
         .filter(({ feature }) => feature)
         .map(({ name, description, languages, link }) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">
-            <h3 class="portfolio-item-title text-light">${name}</h3>
+            <h3 class="portfolio-item-title text-light">Project Title-${name}</h3>
             <h5 class="portfolio-languages">
               Built With:
               ${languages.map(language => language).join(',')}
@@ -58,6 +44,20 @@ const generateProjects = projectsArr => {
   `;
 };
 
+// create the about section
+const generateAbout = aboutText => {
+  if (!aboutText) {
+    return '';
+  }
+
+  return `
+    <section class="my-3" id="about">
+      <h2 class="text-dark bg-primary p-2 display-inline-block">about</h2>
+      <p>${aboutText}</p>
+    </section>
+  `;
+};
+
 // export function to generate entire page
 module.exports = templateData => {
   // destructure page data by section
@@ -74,7 +74,7 @@ module.exports = templateData => {
     <title>Portfolio Demo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./dist/style.css">
   </head>
   
   <body>
@@ -91,7 +91,7 @@ module.exports = templateData => {
       ${generateProjects(projects)}
     </main>
     <footer class="container text-center py-3">
-      <h3 class="text-dark">&copy;2020 by ${header.name}</h3>
+      <h3 class="text-dark">UNCC Coding Bootcamp 2021 by ${header.name}</h3>
     </footer>
   </body>
   </html>
