@@ -84,31 +84,26 @@ function generateMarkdown(userResponses, userInfo) {
 
 
   // Questions / About Developer section
-  let draftDev = 
-  `
-  ---
-  
-  ## Questions?
-  
-   
-  // For any questions, please contact me with the information below:
- 
-  // GitHub: [@${userInfo.login}](${userInfo.url})
-  // `;
-
-  // // If GitHub email is not null, add to Developer section
-  // if (userInfo.email !== null) {
-  
-  // draftDev +=
+  // let Dev = 
   // `
-  // Email: ${userInfo.email}
-  // `};
+  // ---
+  
+  // ## Questions?
+  
+  // ${userResponses.questions}
+   
+  // // For any questions, please contact me with the information below:
+ 
+  // // draftDev +=
+  // // `
+  // // Email: ${userInfo.email}
+  // // `};
 
-  // Add developer section to markdown
-  genMarkdown += draftDev;
+  // // Add developer section to markdown
+  // genMarkdown += Dev;
 
   // Return markdown
-  return genMarkdown;
+  // return genMarkdown;
   
 }
 
