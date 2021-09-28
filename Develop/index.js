@@ -9,6 +9,19 @@ const promptUser = () => {
   return inquirer.prompt([
     {
       type: 'input',
+      name: 'description',
+      message: 'The what, why, and how (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Submit a project description!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
       name: 'Installation',
       message: 'What are the steps to install? (Required)',
       validate: nameInput => {
