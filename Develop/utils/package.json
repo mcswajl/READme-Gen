@@ -1,19 +1,14 @@
 {
-  "name": "project",
+  "name": "static-site",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "main": "index.js",
   "scripts": {
-    "test": "node ./test/sample.js",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^7.0.3"
+    "inquirer": "^6.3.1"
   }
 }

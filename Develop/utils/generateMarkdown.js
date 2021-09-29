@@ -15,10 +15,8 @@ function generateMarkdown(userResponses, userInfo) {
   // Generate markdown top README
   let genMarkdown = 
   `# ${userResponses.title}
-  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor)
-  
-  Check out the badges hosted by [shields.io](https://shields.io/).
-    
+  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/nielsenjared/badmath${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}?style=for-the-badge")
+     
   ## Description (The what, why, and how:)
   
   ${userResponses.description}
@@ -63,12 +61,10 @@ function generateMarkdown(userResponses, userInfo) {
   
   // Tests section
   if (userResponses.tests !== '') {
-  
-  genMarkdown +=
+      genMarkdown +=
   `
   
   ## Tests (optional)
-  
   ${userResponses.tests}`
   };
 

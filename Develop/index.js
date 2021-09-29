@@ -1,11 +1,13 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
+const util = require('util');
 const inquirer = require('inquirer');
-const generatePage = require('./utils/generateMarkdown');
-const { writeFile, copyFile } = require('./utils/generate-site');
+const generateMarkdown = require('./utils/generateMarkdown');
+const writeFileAsync = util.promisify(fs.writeFile);
+
 
 // TODO: Create an array of questions for user input
-const promptUser = () => {
+function promptUser (){
   return inquirer.prompt([
     {
       type: 'input',
@@ -58,80 +60,6 @@ const promptUser = () => {
       message: 'Enter you contributing code here:',
       when: ({ confirmAbout }) => confirmAbout
     },
-  
-
-// const promptProject = portfolioData => {
-//   console.log(`
-// =================
-// Add a New Project
-// =================
-// `);
-
-// If there's no 'projects' array property, create one
-// if (!portfolioData.projects) {
-//   portfolioData.projects = [];
-// }
-// return inquirer
-//   .prompt([
-    {
-      type: 'input',
-      name: 'License',
-      message: 'What? (Required)',
-      validate: nameInput => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log('You!');
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
-      name: 'Questions',
-      message: 'Do you have any questions? (Required)',
-      validate: descriptionInput => {
-        if (descriptionInput) {
-          return true;
-        } else {
-          console.log('Enter an questions!');
-          return false;
-        }
-      }
-    },
-        // {
-        //   type: 'checkbox',
-        //   name: 'languages',
-        //   message: 'What did you this project with? (Check all that apply)',
-        //   choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
-        // },
-        // {
-        //   type: 'input',
-        //   name: 'link',
-        //   message: 'Enter the GitHub link to your project. (Required)',
-        //   validate: linkInput => {
-        //     if (linkInput) {
-        //       return true;
-        //     } else {
-        //       console.log('You need to enter a project GitHub link!');
-        //       return false;
-        //     }
-        //   }
-        // },
-    {
-      type: 'input',
-      name: 'usage',
-      message: 'What is the project usage? (Required)',
-      validate: linkInput => {
-        if (linkInput) {
-          return true;
-        } else {
-          console.log('You need to enter a usage!');
-          return false;
-        }
-      }
-    },
-
     {
       type: 'input',
       name: 'license',
@@ -173,34 +101,55 @@ const promptUser = () => {
       message: 'Do you have any questions?',
       default: false
     },
+    {
+      type: 'input',
+      name: 'Questions',
+      message: 'Do you have any questions? (Required)',
+      validate: descriptionInput => {
+        if (descriptionInput) {
+          return true;
+        } else {
+          console.log('Enter an questions!');
+          return false;
+        }
+      }
+    },
+
   
   ])
-  .then(projectData => {
-    portfolioData.projects.push(projectData);
-    if (projectData.confirmAddProject) {
-      return promptProject(portfolioData);
-    } else {
-      return portfolioData;
-    }
-    });
+  // .then(projectData => {
+  //   portfolioData.projects.push(projectData);
+  //   if (projectData.confirmAddProject) {
+  //     return promptProject(portfolioData);
+  //   } else {
+  //     return portfolioData;
+  //   }
+  //   });
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-promptUser()
-  .then(promptProject)
-  .then(portfolioData => {
-    const pageREADme = generatePage(portfolioData);
-
-    fs.writeFile('./develop/README.md', fileConent, err => {
-      if (err) throw new Error(err);
-
-      console.log('Page created! Check out READme.md in this directory to see it!');
-    });
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, err => {
+      if (err) {
+          return console.log(err);
+      }
+      console.log('Your markdown file has been created.')
   });
+}
 
 // TODO: Create a function to initialize app
-// function init() {}
+async function init() {
+  try {
+    constuserResponse = await inquirer.prompt(inquirer);
+    await writeFileAsync('.develop/utils/generateMarkdown.md');
+    console.log('Page created! Check out READme.md in this directory to see it!');
+  }
+    catch(err){
+      console.log(err);
+    }
+  }
 
-// Function call to initialize app
-// init();
+  // Function call to initialize app
+
+init();
+
 }

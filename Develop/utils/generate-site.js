@@ -18,20 +18,20 @@ const writeFile = fileContent => {
 };
 
 // copying file
-const copyFile = () => {
-  return new Promise((resolve, reject) => {
-    fs.copyFile('./develop/src/style.css', './develop/dist/style.css', err => {
-      if (err) {
-        reject(err);
-        return;
-      }
+// const copyFile = () => {
+//   return new Promise((resolve, reject) => {
+//     fs.copyFile('./develop/src/style.css', './develop/dist/style.css', err => {
+//       if (err) {
+//         reject(err);
+//         return;
+//       }
 
-      resolve({
-        ok: true,
-        message: 'Stylesheet created!'
-      });
-    });
-  });
-};
+//       resolve({
+//         ok: true,
+//         message: 'Stylesheet created!'
+//       });
+//     });
+//   });
+// };
 
 module.exports = { writeFile, copyFile };
