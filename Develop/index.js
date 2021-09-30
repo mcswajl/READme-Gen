@@ -7,7 +7,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 
 // TODO: Create an array of questions for user input
-function promptUser() {
+  function promptUser() {
   return inquirer.prompt([
     {
       type: 'input',
@@ -113,7 +113,7 @@ function promptUser() {
           return false;
         }
       }
-    }
+    },
   ])
   // TODO: Create a function to write README file
   function writeToFile(fileName, data) {
@@ -128,8 +128,9 @@ function promptUser() {
   // TODO: Create a function to initialize app
   async function init() {
     try {
-      const userResponse = await promptUser();
-      await writeFileAsync('.develop/utils/generateMarkdown.md');
+      const answers = await promptUser();
+      const userResponse = generateReadme(answers);
+      await writeFileAsync('.develop/utils/generateMarkdown.md', userResponse);
       console.log('Page created! Check out READme.md in this directory to see it!');
     }
     catch (err) {
