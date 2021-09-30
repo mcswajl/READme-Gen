@@ -7,7 +7,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 
 // TODO: Create an array of questions for user input
-function promptUser (){
+function promptUser() {
   return inquirer.prompt([
     {
       type: 'input',
@@ -113,43 +113,30 @@ function promptUser (){
           return false;
         }
       }
-    },
-
-  
+    }
   ])
-  // .then(projectData => {
-  //   portfolioData.projects.push(projectData);
-  //   if (projectData.confirmAddProject) {
-  //     return promptProject(portfolioData);
-  //   } else {
-  //     return portfolioData;
-  //   }
-  //   });
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, err => {
+  // TODO: Create a function to write README file
+  function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
       if (err) {
-          return console.log(err);
+        return console.log(err);
       }
       console.log('Your markdown file has been created.')
-  });
-}
-
-// TODO: Create a function to initialize app
-async function init() {
-  try {
-    constuserResponse = await inquirer.prompt(inquirer);
-    await writeFileAsync('.develop/utils/generateMarkdown.md');
-    console.log('Page created! Check out READme.md in this directory to see it!');
+    });
   }
-    catch(err){
+
+  // TODO: Create a function to initialize app
+  async function init() {
+    try {
+      const userResponse = await promptUser();
+      await writeFileAsync('.develop/utils/generateMarkdown.md');
+      console.log('Page created! Check out READme.md in this directory to see it!');
+    }
+    catch (err) {
       console.log(err);
     }
   }
-
-  // Function call to initialize app
+};
+// Function call to initialize app
 
 init();
-
-}
