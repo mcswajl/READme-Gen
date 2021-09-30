@@ -128,16 +128,18 @@ const writeFileAsync = util.promisify(fs.writeFile);
   // TODO: Create a function to initialize app
   async function init() {
     try {
-      const answers = await promptUser();
-      const userResponse = generateReadme(answers);
-      await writeFileAsync('.develop/utils/generateMarkdown.md', userResponse);
-      console.log('Page created! Check out READme.md in this directory to see it!');
-    }
-    catch (err) {
+      const userResponse = await promptUser();
+      await writeFileAsync(
+        "./utils/generateMarkdown.md", 
+        JSON.stringify(userResponse)
+      );
+      console.log(
+        "Page created! Check out READme.md in this directory to see it!"
+        );
+      } catch (err) {
       console.log(err);
     }
   }
-};
 // Function call to initialize app
 
 init();
