@@ -17,7 +17,7 @@ ${userResponses.installation}
 ${userResponses.usage}
 
 ## License
-[badge](![Hex.pm](https://img.shields.io/hexpm/l/apa))
+${userResponses.license}
 
 ## Contribute
 ${userResponses.contribute}

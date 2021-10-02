@@ -151,7 +151,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
       const userResponse = await promptUser();
       console.log(userResponse),
       await writeFileAsync(
-        "./utils/READme.md", 
+        "./READme.md", 
         generateMarkdown(userResponse)
       );
       console.log(
