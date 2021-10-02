@@ -75,18 +75,11 @@ const writeFileAsync = util.promisify(fs.writeFile);
       }
     },
     {
-      type: 'input',
-      name: 'license',
-      message: 'What license did you use? (Required)',
-      validate: linkInput => {
-        if (linkInput) {
-          return true;
-        } else {
-          console.log('You need to enter a license!');
-          return false;
-        }
-      }
-    },
+      type: 'list',
+      message: "Choose a license for your project.",
+      choices: ['MIT', 'GNU GPLv3', 'ISC', 'Apache License 2.0', 'Mozilla Public License 2.0'],
+      name: 'license'
+  },
 
     {
       type: 'input',
