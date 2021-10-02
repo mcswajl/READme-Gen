@@ -11,8 +11,8 @@ const writeFileAsync = util.promisify(fs.writeFile);
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'description',
-      message: 'The what, why, and how (Required)',
+      name: 'title',
+      message: 'What is your project title? (Required)',
       validate: nameInput => {
         if (nameInput) {
           return true;
@@ -24,7 +24,33 @@ const writeFileAsync = util.promisify(fs.writeFile);
     },
     {
       type: 'input',
-      name: 'Installation',
+      name: 'description',
+      message: 'Describe your project (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Submit a project description!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'motivation',
+      message: 'What was your motivation for this project? (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please describe!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'installation',
       message: 'What are the steps to install? (Required)',
       validate: nameInput => {
         if (nameInput) {
@@ -37,7 +63,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
     },
     {
       type: 'input',
-      name: 'Usage',
+      name: 'usage',
       message: 'How to use this READme Generator (Required)',
       validate: githubInput => {
         if (githubInput) {
@@ -47,18 +73,6 @@ const writeFileAsync = util.promisify(fs.writeFile);
           return false;
         }
       }
-    },
-    {
-      type: 'confirm',
-      name: 'confirmAbout',
-      message: 'Would you like to contribute to this code?',
-      default: true
-    },
-    {
-      type: 'input',
-      name: 'Contributting',
-      message: 'Enter you contributing code here:',
-      when: ({ confirmAbout }) => confirmAbout
     },
     {
       type: 'input',
@@ -87,23 +101,22 @@ const writeFileAsync = util.promisify(fs.writeFile);
         }
       }
     },
-
     {
-      type: 'confirm',
-      name: 'confirmAddProject',
-      message: 'Did you test this project?',
-      default: false
-    },
-
-    {
-      type: 'confirm',
-      name: 'confirmAddProject',
-      message: 'Do you have any questions?',
-      default: false
+      type: 'input',
+      name: 'Tests',
+      message: 'How did you test this READme Gen.? (Required)',
+      validate: descriptionInput => {
+        if (descriptionInput) {
+          return true;
+        } else {
+          console.log('Enter here');
+          return false;
+        }
+      }
     },
     {
       type: 'input',
-      name: 'Questions',
+      name: 'questions',
       message: 'Do you have any questions? (Required)',
       validate: descriptionInput => {
         if (descriptionInput) {
@@ -114,7 +127,21 @@ const writeFileAsync = util.promisify(fs.writeFile);
         }
       }
     },
+        {
+          type: 'input',
+          name: 'email',
+          message: 'Enter email address (Required)',
+          validate: descriptionInput => {
+            if (descriptionInput) {
+              return true;
+            } else {
+              console.log('Enter an questions!');
+              return false;
+            }
+      }
+    },
   ])
+}
   // TODO: Create a function to write README file
   function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
@@ -129,9 +156,10 @@ const writeFileAsync = util.promisify(fs.writeFile);
   async function init() {
     try {
       const userResponse = await promptUser();
+      console.log(userResponse),
       await writeFileAsync(
-        "./utils/generateMarkdown.md", 
-        JSON.stringify(userResponse)
+        "./utils/READme.md", 
+        generateMarkdown(userResponse)
       );
       console.log(
         "Page created! Check out READme.md in this directory to see it!"
@@ -140,6 +168,6 @@ const writeFileAsync = util.promisify(fs.writeFile);
       console.log(err);
     }
   }
-// Function call to initialize app
+  // Function call to initialize app
 
-init();
+   init();
