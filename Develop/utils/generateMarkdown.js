@@ -1,6 +1,6 @@
 function generateMarkdown(userResponses) {
   return `
-(![Hex.pm](https://img.shields.io/hexpm/l/apa))
+![Hex.pm](https://img.shields.io/hexpm/l/apa)
 
 ## My Project Title is  
 ${userResponses.title}
