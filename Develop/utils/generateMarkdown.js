@@ -1,8 +1,9 @@
 function generateMarkdown(userResponses) {
   return `
-My Project Title is:  ${userResponses.title}
-  
-License Badge  (![Hex.pm](https://img.shields.io/hexpm/l/apa))
+(![Hex.pm](https://img.shields.io/hexpm/l/apa))
+
+## My Project Title is  
+${userResponses.title}
 
 ## Description (The what, why, and how:)
 ${userResponses.description}
