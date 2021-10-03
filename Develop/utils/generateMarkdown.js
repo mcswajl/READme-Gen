@@ -23,6 +23,10 @@ ${userResponses.usage}
 
 ## License
 ${userResponses.license}
+I simply used apache 2.0, other license types could be added 
+to this list, I showed how this section works, 
+user selects from a list, corresponding badge 
+will also be displayed at the top of the page.
 
 ## Contribute
 ${userResponses.contribute}
