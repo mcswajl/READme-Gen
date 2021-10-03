@@ -15,7 +15,7 @@ asdfasd
 
 ## Screenshot (taken during development)
 Screenshot of my website
-![Screenshot](./images/screenshot.jpg)
+![Screenshot](./screenshot.jpg)
   
 ## Usage (How to use)
 asdfas
