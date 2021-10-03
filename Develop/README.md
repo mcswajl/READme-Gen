@@ -11,17 +11,21 @@ My project application generates a READme.md file after the user answers the que
 Once I read and understood readme-guide.md file for this project, I was motivated  to code my index,js and my generateMarkdown.js to be run inside of Node.js within the terminal: node index.js  
 
 ## Installation (Require steps to install and run)  
-Download and install Node.js and NPM
+Download and install Node.js and NPM. Within your local repository and terminal, run install inquirer (installs from NPM). By installing node.js you will see a folder called “node_modules” added to your Develop folder in VScode. Then run node index.js Answer the questions After the last question is answered a READme.md file is created and stored where You coded file path is pointed.
 
 ## Screenshot (taken during development)
 Screenshot of my website
-![Screenshot](./screenshot.jpg)
+![Screenshot](./images/screenshot.jpg)
   
 ## Usage (How to use)
 Now that this project has been created, theindex.js and generateMarkdown and package.JSON files can be customized to generate a READme.md for all future websites you generate.
 
 ## License
 Apache License 2.0
+I simply used apache 2.0, other license types could be added 
+to this list, I showed how this section works, 
+user selects from a list, corresponding badge 
+will also be displayed at the top of the page.
 
 ## Contribute
 I included this section for future use. I was the only contributor for this project and I don’t feel the need to add a resource for other developers to use at this time.

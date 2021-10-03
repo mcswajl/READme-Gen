@@ -76,9 +76,9 @@ const writeFileAsync = util.promisify(fs.writeFile);
     },
     {
       type: 'list',
+      name: 'license',
       message: "Choose a license for your project.",
       choices: ['Apache License 2.0', 'Apache License 2.0', 'Apache License 2.0', 'Apache License 2.0',],
-      name: 'license'
     },
     {
       type: 'input',
