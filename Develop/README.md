@@ -15,7 +15,7 @@ Download and install Node.js and NPM. Within your local repository and terminal,
 
 ## Screenshot (taken during development)
 Screenshot of my website
-![Screenshot](./images/screenshot.jpg)
+![Screenshot](./screenshot.jpg)
   
 ## Usage (How to use)
 Now that this project has been created, theindex.js and generateMarkdown and package.JSON files can be customized to generate a READme.md for all future websites you generate.
