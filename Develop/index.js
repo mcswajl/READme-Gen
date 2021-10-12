@@ -95,7 +95,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
     },
     {
       type: 'input',
-      name: 'Tests',
+      name: 'tests',
       message: 'How did you test this READme Gen.? (Required)',
       validate: descriptionInput => {
         if (descriptionInput) {
@@ -135,7 +135,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
   ])
 }
   // TODO: Create a function to write README file
-  function writeToFile(fileName, data) {
+  function writeToFile(fileName, data){
     fs.writeFile(fileName, data, err => {
       if (err) {
         return console.log(err);
